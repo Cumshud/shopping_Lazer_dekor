@@ -1,0 +1,5 @@
+package com.example.shoppingg.enumm;
+
+public enum ProductsCategory {
+    MEISETDEKORLARI, HEDIYYELIKDEKORLAR, PORTRETVETABLOLAR, BAYRAMDEKORLARI, OZELGUNUNDEKORLARI, QABLASDIRMA
+}

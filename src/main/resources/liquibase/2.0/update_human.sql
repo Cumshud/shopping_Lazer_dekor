@@ -1,0 +1,1 @@
+update human h set name= 'Elman' where id=1;

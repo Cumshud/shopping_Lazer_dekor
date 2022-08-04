@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create table human
+      author: Elnur Khalilov
+      changes:
+        - createTable:
+            tableName: human
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar
+              - column:
+                  name: age
+                  type: int
+              - column:
+                  name: description
+                  type: text

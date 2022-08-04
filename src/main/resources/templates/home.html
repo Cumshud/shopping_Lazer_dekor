@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<input name="name" id="name">Name</input><br/>
+<input name="price" id="price">Price </input><br/>
+<input name="description" id="description">Description</input><br/>
+<button id="button">Sumbit</button>
+<h1>It is home page!</h1>
+<table>
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>price</td>
+        <td>Description</td>
+        <td>Detail</td>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produst:${produsts}">
+        <td th:text="${produst.id}"></td>
+        <td th:text="${produst.name}"></td>
+        <td th:text="${produst.price}"></td>
+        <td th:text="${produst.description}"></td>
+
+        <td th:text="${produst.produstDetailEntity}"></td>
+        <script>
+            $("#button").click(function () {
+                console.log("start")
+                var name = $("#name").val()
+                var price = $("#price").val()
+                var description = $("#description").val()
+
+                var data = {}
+
+                data.name = name
+                data.price = price
+                data.rate = description
+
+                console.log("data: " + data.name)
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8081/main//save-produst",
+                    data: JSON.stringify(data),
+                    success: function (response) {
+                        if(response=="success"){
+                            alert("Success")
+                        }else {
+                            alert("Something went wrong")
+                        }
+                    },
+                    dataType: "json"
+                })
+
+                console.log("end")
+            })
+        </script>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
