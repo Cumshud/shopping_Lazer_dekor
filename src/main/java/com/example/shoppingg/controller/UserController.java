@@ -26,7 +26,7 @@ public class UserController {
         model.addAttribute("ucerr", new Ucerr());
         return "registration";
     }
-    @PostMapping("register")
+    @PostMapping("/register")
     public String register(Ucerr ucerr){
         Optional<Ucerr> user1= emailChecking.checkEmail(ucerr);
         if(user1.isPresent()){
@@ -56,7 +56,7 @@ public class UserController {
         if(ucerr==null){
             return "login";
         }
-        return "welcome";
+        return "/shopping/about";
     }
     @GetMapping("/logout")
     public String logout(HttpServletRequest httpServletRequest,Model model){
